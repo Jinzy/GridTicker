@@ -3,6 +3,9 @@ HOST: http://api.gridticker.com/v1
 
 # GridTicker
 GridTicker API is an *IoT Platform* service collects ticks from any thing connected with the GridTicker.
+A ticker can record ticks on one or multiple tapes. 
+Thus you can asign a Ticker to a device, a tape to a sensor, and ticks to the datapoints collected from the sensors.
+
 
 # Group Tickers
 Ticker related resources of the **GridTicker API**
@@ -70,6 +73,90 @@ Tick related resources of the **GridTicker API**
 
 ## Tick [/ticks/{id}]
 A single Tick object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Tick to perform action with. Has example value.
+
+### Retrieve a Tick [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            { "id": 2, "name": "Temperature", "value": "28.7" }
+
+### Remove a Tick [DELETE]
++ Response 204
+
+# Group Gateways
+Gateway related resources of the **GridTicker API**
+
+## Gateway Collection [/gateways]
+### List all Tickers [GET]
++ Response 200 (application/json)
+
+        [{
+          "id": 1, "name": "Gateway 1"
+        }, {
+          "id": 2, "name": "Gateway 2"
+        }]
+
+### Create a Ticker [POST]
++ Request (application/json)
+
+        { "name": "Gateway 3" }
+
++ Response 201 (application/json)
+
+        { "id": 3, "name": "Gateway 4" }
+
+## Gateway [/gateways/{id}]
+A single Gateway object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Ticker to perform action with. Has example value.
+
+### Retrieve a Ticker [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            { "id": 2, "name": "Gateway 2" }
+
+### Remove a Ticker [DELETE]
++ Response 204
+
+# Group WSNIs
+WSNI related resources of the **GridTicker API**
+
+## WSNI Collection [/gateways/{id}/wsnis]
+### List all Ticks [GET]
++ Response 200 (application/json)
+
+        [{
+          "id": 1, "name": "Temperature", "value": "35.5"
+        }, {
+          "id": 2, "name": "Temperature", "value": "28.7"
+        }]
+
+### Create a Ticker [POST]
++ Request (application/json)
+
+        { "name": "Temperature", "value": "45.2" }
+
++ Response 201 (application/json)
+
+        { "id": 3, "name": "Temperature", "value": "45.2"  }
+
+## wsni [/gateways/{id}/wsnis/{id}]
+A single WSNI object with all its details
 
 + Parameters
     + id (required, number, `1`) ... Numeric `id` of the Tick to perform action with. Has example value.
